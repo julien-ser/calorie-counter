@@ -276,3 +276,60 @@ Index: /home/julien/Desktop/Free-Wiggum-opencode/projects/calorie-counter/TASKS.
 [x] Update TASKS.md to mark tasks 2, 3, 4 as complete
 [x] Update README.md with any missing details
 [0m
+[0m$ [0mgit add .
+[0m
+[0m$ [0mgit commit -m "Setup: Add React frontend and Node.js/Express backend structure"
+[main 44d9c56] Setup: Add React frontend and Node.js/Express backend structure
+ 6 files changed, 621 insertions(+), 4 deletions(-)
+ create mode 100644 client/package.json
+ create mode 100644 logs/iteration-2.md
+ create mode 100644 server/package.json
+[0m
+[0m$ [0mgit push origin main
+To https://github.com/Julien-ser/calorie-counter.git
+   4a257ab..44d9c56  main -> main
+[0m
+[0m$ [0mfind . -type f -name "*.json" -o -type f -name ".gitignore" -o -type f -name "TASKS.md" -o -type f -name "README.md" | grep -v node_modules | sort
+./client/package.json
+./.gitignore
+./README.md
+./server/package.json
+./TASKS.md
+[0m
+Let me verify the final project structure:
+[0m→ [0mRead TASKS.md[90m [limit=10][0m
+Done. Phase 1 complete: React/Express/SQLite stack chosen, git initialized with comprehensive .gitignore, and project structure created with both package.json files. All changes committed and pushed.
+```
+
+## TASKS.md After Iteration
+
+```markdown
+# calorie-counter
+**Mission:** Keep track of calories consumed
+
+## Phase 1: Planning & Setup
+- [x] Define project scope and user stories for calorie tracking features
+- [x] Choose technology stack: React frontend, Node.js/Express backend, SQLite database
+- [x] Initialize git repository with proper .gitignore and branching strategy
+- [x] Create project structure: `client/` and `server/` directories with package.json files
+
+## Phase 2: Backend Development
+- [ ] Set up Express server with middleware (CORS, body-parser, helmet)
+- [ ] Design and implement SQLite database schema for users, foods, and meals tables
+- [ ] Create REST API endpoints: GET/POST/DELETE `/api/meals`, GET `/api/foods`
+- [ ] Implement calorie calculation logic and date-based filtering
+
+## Phase 3: Frontend Development
+- [ ] Create React app with functional components and hooks
+- [ ] Build MealForm component with food name, calories, date, and meal type inputs
+- [ ] Build MealList component to display meals grouped by date with total calorie summary
+- [ ] Implement state management with React Context for meals data and API integration
+
+## Phase 4: Testing & Polish
+- [ ] Write unit tests for backend API endpoints using Jest and Supertest
+- [ ] Write component tests for MealForm and MealList using React Testing Library
+- [ ] Add responsive CSS styling and clean UI design
+- [ ] Create README.md with setup instructions, API documentation, and features list
+```
+
+**Completed at:** Thu Mar 12 10:57:38 PM EDT 2026
