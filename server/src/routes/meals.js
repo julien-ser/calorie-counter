@@ -1,25 +1,39 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../db').getDB();
+const dbWrapper = require('../db');
+const { calculateCalories } = require('../utils/calories');
 
-// GET /api/meals - Get all meals, optionally filtered by date
+// Helper to get database connection (ensures it's initialized)
+const getDB = () => dbWrapper.getDB();
+
+// GET /api/meals - Get all meals, optionally filtered by date or date range
 router.get('/', (req, res) => {
-  const { date } = req.query;
+  const { date, start_date, end_date } = req.query;
   let sql = `
     SELECT m.*, f.name as food_name, f.calories_per_serving
     FROM meals m
     JOIN foods f ON m.food_id = f.id
   `;
   const params = [];
+  const conditions = [];
 
   if (date) {
-    sql += ' WHERE m.date = ?';
+    conditions.push('m.date = ?');
     params.push(date);
+  }
+
+  if (start_date && end_date) {
+    conditions.push('m.date BETWEEN ? AND ?');
+    params.push(start_date, end_date);
+  }
+
+  if (conditions.length > 0) {
+    sql += ' WHERE ' + conditions.join(' AND ');
   }
 
   sql += ' ORDER BY m.date DESC, m.created_at DESC';
 
-  db.all(sql, params, (err, rows) => {
+  getDB().all(sql, params, (err, rows) => {
     if (err) {
       res.status(500).json({ error: err.message });
       return;
@@ -37,8 +51,14 @@ router.post('/', (req, res) => {
     return;
   }
 
+  const numServings = servings !== undefined ? Number(servings) : 1;
+  if (numServings <= 0 || isNaN(numServings)) {
+    res.status(400).json({ error: 'Servings must be a positive number' });
+    return;
+  }
+
   // First get the food's calories per serving
-  db.get('SELECT calories_per_serving FROM foods WHERE id = ?', [food_id], (err, food) => {
+  getDB().get('SELECT calories_per_serving FROM foods WHERE id = ?', [food_id], (err, food) => {
     if (err) {
       res.status(500).json({ error: err.message });
       return;
@@ -48,7 +68,13 @@ router.post('/', (req, res) => {
       return;
     }
 
-    const total_calories = Math.round(food.calories_per_serving * (servings || 1));
+    let total_calories;
+    try {
+      total_calories = calculateCalories(food.calories_per_serving, numServings);
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+      return;
+    }
 
     const sql = `
       INSERT INTO meals (user_id, food_id, date, meal_type, servings, total_calories)
@@ -56,7 +82,7 @@ router.post('/', (req, res) => {
     `;
     const params = [user_id, food_id, date, meal_type, servings || 1, total_calories];
 
-    db.run(sql, params, function(err) {
+    getDB().run(sql, params, function(err) {
       if (err) {
         res.status(500).json({ error: err.message });
         return;
@@ -78,7 +104,7 @@ router.post('/', (req, res) => {
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
 
-  db.run('DELETE FROM meals WHERE id = ?', [id], function(err) {
+  getDB().run('DELETE FROM meals WHERE id = ?', [id], function(err) {
     if (err) {
       res.status(500).json({ error: err.message });
       return;
@@ -113,7 +139,7 @@ router.get('/summary/user/:userId', (req, res) => {
 
   sql += ' GROUP BY date ORDER BY date DESC';
 
-  db.all(sql, params, (err, rows) => {
+  getDB().all(sql, params, (err, rows) => {
     if (err) {
       res.status(500).json({ error: err.message });
       return;

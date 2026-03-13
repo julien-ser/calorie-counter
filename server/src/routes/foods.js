@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../db').getDB();
+const dbWrapper = require('../db');
+
+const getDB = () => dbWrapper.getDB();
 
 // GET /api/foods - Get all foods
 router.get('/', (req, res) => {
@@ -11,7 +13,7 @@ router.get('/', (req, res) => {
     ORDER BY f.name ASC
   `;
 
-  db.all(sql, (err, rows) => {
+  getDB().all(sql, (err, rows) => {
     if (err) {
       res.status(500).json({ error: err.message });
       return;
@@ -35,7 +37,7 @@ router.post('/', (req, res) => {
   `;
   const params = [name, calories_per_serving, serving_size || null, created_by_user_id || null];
 
-  db.run(sql, params, function(err) {
+  getDB().run(sql, params, function(err) {
     if (err) {
       res.status(500).json({ error: err.message });
       return;
