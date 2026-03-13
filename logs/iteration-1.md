@@ -256,3 +256,52 @@ Index: /home/julien/Desktop/Free-Wiggum-opencode/projects/calorie-counter/TASKS.
 [0m
 I'll now update the README.md with the project scope and user stories, then mark the task complete in TASKS.md:
 Now I'll commit and push these changes:
+[0m$ [0mgit add . && git commit -m "Define project scope and user stories for calorie tracking features" && git push origin main
+[main 3967dfa] Define project scope and user stories for calorie tracking features
+ 5 files changed, 531 insertions(+), 22 deletions(-)
+ create mode 100644 TASKS_original.md
+ create mode 100644 logs/iteration-1.md
+ create mode 100644 logs/worker-session-20260312-225546.log
+To https://github.com/Julien-ser/calorie-counter.git
+ * [new branch]      main -> main
+[0m
+Perfect! Task 1 is complete:
+- ✅ Project scope and user stories defined in README.md
+- ✅ TASKS.md updated with [x]
+- ✅ Changes committed and pushed
+
+The calorie counter project now has clear requirements: a full-stack app (React + Express + SQLite) for tracking meals, calories, and daily totals with well-defined user stories.
+```
+
+## TASKS.md After Iteration
+
+```markdown
+# calorie-counter
+**Mission:** Keep track of calories consumed
+
+## Phase 1: Planning & Setup
+- [x] Define project scope and user stories for calorie tracking features
+- [ ] Choose technology stack: React frontend, Node.js/Express backend, SQLite database
+- [ ] Initialize git repository with proper .gitignore and branching strategy
+- [ ] Create project structure: `client/` and `server/` directories with package.json files
+
+## Phase 2: Backend Development
+- [ ] Set up Express server with middleware (CORS, body-parser, helmet)
+- [ ] Design and implement SQLite database schema for users, foods, and meals tables
+- [ ] Create REST API endpoints: GET/POST/DELETE `/api/meals`, GET `/api/foods`
+- [ ] Implement calorie calculation logic and date-based filtering
+
+## Phase 3: Frontend Development
+- [ ] Create React app with functional components and hooks
+- [ ] Build MealForm component with food name, calories, date, and meal type inputs
+- [ ] Build MealList component to display meals grouped by date with total calorie summary
+- [ ] Implement state management with React Context for meals data and API integration
+
+## Phase 4: Testing & Polish
+- [ ] Write unit tests for backend API endpoints using Jest and Supertest
+- [ ] Write component tests for MealForm and MealList using React Testing Library
+- [ ] Add responsive CSS styling and clean UI design
+- [ ] Create README.md with setup instructions, API documentation, and features list
+```
+
+**Completed at:** Thu Mar 12 10:56:19 PM EDT 2026
