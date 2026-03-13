@@ -2,7 +2,7 @@
 **Mission:** Keep track of calories consumed
 
 ## Phase 1: Planning & Setup
-- [x] Define project scope and user stories for calorie tracking features
+- [ ] Define project scope and user stories for calorie tracking features
 - [ ] Choose technology stack: React frontend, Node.js/Express backend, SQLite database
 - [ ] Initialize git repository with proper .gitignore and branching strategy
 - [ ] Create project structure: `client/` and `server/` directories with package.json files
