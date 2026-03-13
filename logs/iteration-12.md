@@ -1808,3 +1808,51 @@ Index: /home/julien/Desktop/Free-Wiggum-opencode/projects/calorie-counter/TASKS.
 
 [0m
 Now commit and push changes:
+[0m$ [0mgit add . && git commit -m "Test: add component tests for MealForm and MealList; fix timezone formatting; update TASKS and README" && git push origin main
+[main 9dd4c20] Test: add component tests for MealForm and MealList; fix timezone formatting; update TASKS and README
+ 13 files changed, 5955 insertions(+), 13 deletions(-)
+ create mode 100644 client/src/components/MealForm.test.js
+ create mode 100644 client/src/components/MealList.test.js
+ create mode 100644 client/src/setupTests.js
+ create mode 100644 logs/iteration-11.md
+ create mode 100644 logs/iteration-12.md
+ create mode 100644 logs/worker-session-20260312-232443.log
+ create mode 100644 server/src/routes/__tests__/foods.test.js
+To https://github.com/Julien-ser/calorie-counter.git
+   d95068e..9dd4c20  main -> main
+[0m
+Component tests for MealForm and MealList are complete and all 19 tests pass. I fixed timezone formatting in MealList and updated TASKS.md. README.md already exists with setup instructions. All changes committed and pushed to main.
+```
+
+## TASKS.md After Iteration
+
+```markdown
+# calorie-counter
+**Mission:** Keep track of calories consumed
+
+## Phase 1: Planning & Setup
+- [x] Define project scope and user stories for calorie tracking features
+- [x] Choose technology stack: React frontend, Node.js/Express backend, SQLite database
+- [x] Initialize git repository with proper .gitignore and branching strategy
+- [x] Create project structure: `client/` and `server/` directories with package.json files
+
+## Phase 2: Backend Development
+- [x] Set up Express server with middleware (CORS, body-parser, helmet)
+- [x] Design and implement SQLite database schema for users, foods, and meals tables
+- [x] Create REST API endpoints: GET/POST/DELETE `/api/meals`, GET `/api/foods`
+- [x] Implement calorie calculation logic and date-based filtering
+
+## Phase 3: Frontend Development
+- [x] Create React app with functional components and hooks
+- [x] Build MealForm component with food name, calories, date, and meal type inputs
+- [x] Build MealList component to display meals grouped by date with total calorie summary
+- [x] Implement state management with React Context for meals data and API integration
+
+## Phase 4: Testing & Polish
+- [x] Write unit tests for backend API endpoints using Jest and Supertest
+ - [x] Write component tests for MealForm and MealList using React Testing Library
+- [ ] Add responsive CSS styling and clean UI design
+- [x] Create README.md with setup instructions, API documentation, and features list
+```
+
+**Completed at:** Thu Mar 12 11:32:00 PM EDT 2026
