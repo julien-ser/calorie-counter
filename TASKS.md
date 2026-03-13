@@ -14,13 +14,13 @@
 - [x] Implement calorie calculation logic and date-based filtering
 
 ## Phase 3: Frontend Development
-- [ ] Create React app with functional components and hooks
-- [ ] Build MealForm component with food name, calories, date, and meal type inputs
-- [ ] Build MealList component to display meals grouped by date with total calorie summary
-- [ ] Implement state management with React Context for meals data and API integration
+- [x] Create React app with functional components and hooks
+- [x] Build MealForm component with food name, calories, date, and meal type inputs
+- [x] Build MealList component to display meals grouped by date with total calorie summary
+- [x] Implement state management with React Context for meals data and API integration
 
 ## Phase 4: Testing & Polish
-- [ ] Write unit tests for backend API endpoints using Jest and Supertest
-- [ ] Write component tests for MealForm and MealList using React Testing Library
+- [x] Write unit tests for backend API endpoints using Jest and Supertest
+ - [x] Write component tests for MealForm and MealList using React Testing Library
 - [ ] Add responsive CSS styling and clean UI design
-- [ ] Create README.md with setup instructions, API documentation, and features list
+- [x] Create README.md with setup instructions, API documentation, and features list
