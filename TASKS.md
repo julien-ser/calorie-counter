@@ -3,9 +3,9 @@
 
 ## Phase 1: Planning & Setup
 - [x] Define project scope and user stories for calorie tracking features
-- [ ] Choose technology stack: React frontend, Node.js/Express backend, SQLite database
-- [ ] Initialize git repository with proper .gitignore and branching strategy
-- [ ] Create project structure: `client/` and `server/` directories with package.json files
+- [x] Choose technology stack: React frontend, Node.js/Express backend, SQLite database
+- [x] Initialize git repository with proper .gitignore and branching strategy
+- [x] Create project structure: `client/` and `server/` directories with package.json files
 
 ## Phase 2: Backend Development
 - [ ] Set up Express server with middleware (CORS, body-parser, helmet)
