@@ -5,7 +5,7 @@ A full-stack web application for tracking daily calorie intake with a React fron
 ## Current Status
 
 **Phase 1 (Planning & Setup)**: ✅ Complete  
-**Phase 2 (Backend)**: In Progress - Express server with CORS, body-parser, and helmet middleware is set up. Database schema implementation pending.
+**Phase 2 (Backend)**: In Progress - Express server with middleware and SQLite database schema complete. REST API endpoints implementation in progress.
 
 ## Project Scope
 

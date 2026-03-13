@@ -9,7 +9,7 @@
 
 ## Phase 2: Backend Development
 - [x] Set up Express server with middleware (CORS, body-parser, helmet)
-- [ ] Design and implement SQLite database schema for users, foods, and meals tables
+- [x] Design and implement SQLite database schema for users, foods, and meals tables
 - [ ] Create REST API endpoints: GET/POST/DELETE `/api/meals`, GET `/api/foods`
 - [ ] Implement calorie calculation logic and date-based filtering
 

@@ -772,3 +772,89 @@ Server running on port 3001
 [91m[1mError: [0mYou must read file /home/julien/Desktop/Free-Wiggum-opencode/projects/calorie-counter/TASKS.md before overwriting it. Use the Read tool first
 Excellent! The server and database are working. Now I'll update TASKS.md and README.md:
 📝 Log saved: logs/iteration-4.md
+📊 Token Usage: 2500 / Session: 13750 / 64000
+Unstaged changes after reset:
+M	logs/worker-session-20260312-225546.log
+✅ Changes committed
+To https://github.com/Julien-ser/calorie-counter.git
+   332736f..0f139d7  main -> main
+✅ Pushed to GitHub
+📊 Updated Tasks: 5/16 completed, 11 remaining
+   Next task: Design and implement SQLite database schema for users, foods...
+📍 Iteration 5 at Thu Mar 12 11:02:32 PM EDT 2026...
+✓ Progress: Git commit found
+📊 Task attempt 2: Progress detected, continuing...
+📚 Loading context from previous iteration attempts...
+   Found context in: iteration-4.md
+🤖 OpenCode processing: Design and implement SQLite database schema for users, foods, and meals tables
+[0m
+> build · stepfun/step-3.5-flash:free
+[0m
+I'll complete the database schema design and implementation task. Let me start by exploring the current server structure to understand what exists.
+[0m→ [0mRead server
+[0m✱ [0mGlob "server/**/*.js"[90m 4 matches[0m
+[0m→ [0mRead server/src/db.js
+[0m→ [0mRead server/src/index.js
+[0m→ [0mRead server/package.json
+[0m→ [0mRead server/src/routes/meals.js
+[0m→ [0mRead server/src/routes/foods.js
+The database schema is already implemented in `server/src/db.js`. The implementation includes the three tables (users, foods, meals) with proper foreign key relationships, constraints, and initialization.
+
+Let me mark this task as complete in TASKS.md and verify the project can start properly:
+[0m→ [0mRead TASKS.md
+[0m
+[0m$ [0mcd /home/julien/Desktop/Free-Wiggum-opencode/projects/calorie-counter/server && npm install
+up to date, audited 480 packages in 966ms
+
+70 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+[0m
+[0m← [0mEdit TASKS.md
+Index: /home/julien/Desktop/Free-Wiggum-opencode/projects/calorie-counter/TASKS.md
+===================================================================
+--- /home/julien/Desktop/Free-Wiggum-opencode/projects/calorie-counter/TASKS.md
++++ /home/julien/Desktop/Free-Wiggum-opencode/projects/calorie-counter/TASKS.md
+@@ -8,9 +8,9 @@
+ - [x] Create project structure: `client/` and `server/` directories with package.json files
+ 
+ ## Phase 2: Backend Development
+ - [x] Set up Express server with middleware (CORS, body-parser, helmet)
+-- [ ] Design and implement SQLite database schema for users, foods, and meals tables
++- [x] Design and implement SQLite database schema for users, foods, and meals tables
+ - [ ] Create REST API endpoints: GET/POST/DELETE `/api/meals`, GET `/api/foods`
+ - [ ] Implement calorie calculation logic and date-based filtering
+ 
+ ## Phase 3: Frontend Development
+
+[0m
+The database schema is already fully implemented in `server/src/db.js:29-78`. The task is complete. Let me mark it as done in TASKS.md and do a quick verification:
+[0m$ [0mtimeout 5 node src/index.js || true
+Connected to SQLite database
+Tables created successfully
+Server running on port 3001
+[0m
+[0m→ [0mRead README.md
+[0m
+[0m← [0mEdit README.md
+Index: /home/julien/Desktop/Free-Wiggum-opencode/projects/calorie-counter/README.md
+===================================================================
+--- /home/julien/Desktop/Free-Wiggum-opencode/projects/calorie-counter/README.md
++++ /home/julien/Desktop/Free-Wiggum-opencode/projects/calorie-counter/README.md
+@@ -4,9 +4,9 @@
+ 
+ ## Current Status
+ 
+ **Phase 1 (Planning & Setup)**: ✅ Complete  
+-**Phase 2 (Backend)**: In Progress - Express server with CORS, body-parser, and helmet middleware is set up. Database schema implementation pending.
++**Phase 2 (Backend)**: In Progress - Express server with middleware and SQLite database schema complete. REST API endpoints implementation in progress.
+ 
+ ## Project Scope
+ 
+ Build a calorie tracking system that allows users to:
+
+[0m
+Task complete. Database schema (users, foods, meals) is fully implemented and verified. TASKS.md updated. README.md reflects current progress. Server starts successfully and initializes the database.
+📝 Log saved: logs/iteration-5.md
+📊 Token Usage: 2500 / Session: 16250 / 64000
