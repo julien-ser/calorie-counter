@@ -3,6 +3,8 @@ const cors = require('cors');
 const helmet = require('helmet');
 require('dotenv').config();
 
+const db = require('./db');
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -18,6 +20,10 @@ app.use(cors({
 // Body parsing middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Routes
+app.use('/api/meals', require('./routes/meals'));
+app.use('/api/foods', require('./routes/foods'));
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
@@ -36,8 +42,13 @@ app.use((err, req, res, next) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+db.initialize().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}).catch(err => {
+  console.error('Failed to initialize database:', err);
+  process.exit(1);
 });
 
 module.exports = app;
