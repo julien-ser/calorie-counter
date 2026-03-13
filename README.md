@@ -2,6 +2,11 @@
 
 A full-stack web application for tracking daily calorie intake with a React frontend and Node.js/Express backend.
 
+## Current Status
+
+**Phase 1 (Planning & Setup)**: ✅ Complete  
+**Phase 2 (Backend)**: In Progress - Express server with CORS, body-parser, and helmet middleware is set up. Database schema implementation pending.
+
 ## Project Scope
 
 Build a calorie tracking system that allows users to:
