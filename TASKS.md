@@ -11,7 +11,7 @@
 - [x] Set up Express server with middleware (CORS, body-parser, helmet)
 - [x] Design and implement SQLite database schema for users, foods, and meals tables
 - [x] Create REST API endpoints: GET/POST/DELETE `/api/meals`, GET `/api/foods`
-- [ ] Implement calorie calculation logic and date-based filtering
+- [x] Implement calorie calculation logic and date-based filtering
 
 ## Phase 3: Frontend Development
 - [ ] Create React app with functional components and hooks

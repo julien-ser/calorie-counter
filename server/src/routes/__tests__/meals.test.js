@@ -100,18 +100,52 @@ describe('Meals API', () => {
     });
 
     test('should return all meals when no date filter applied', async () => {
+      // Insert test meals
+      await new Promise((resolve) => {
+        db.getDB().run(
+          `INSERT INTO meals (user_id, food_id, date, meal_type, servings, total_calories) 
+           VALUES (?, ?, ?, ?, ?, ?)`,
+          [testUserId, testFoodId, '2024-01-15', 'breakfast', 1, 100],
+          resolve
+        );
+      });
+      await new Promise((resolve) => {
+        db.getDB().run(
+          `INSERT INTO meals (user_id, food_id, date, meal_type, servings, total_calories) 
+           VALUES (?, ?, ?, ?, ?, ?)`,
+          [testUserId, testFoodId, '2024-01-16', 'lunch', 2, 200],
+          resolve
+        );
+      });
+
       const response = await request(app).get('/api/meals');
       expect(response.status).toBe(200);
       expect(response.body).toHaveLength(2);
     });
 
     test('should combine date and date range filters with AND logic', async () => {
-      // Add a meal on a different date
+      // Insert meals on different dates
       await new Promise((resolve) => {
         db.getDB().run(
           `INSERT INTO meals (user_id, food_id, date, meal_type, servings, total_calories) 
            VALUES (?, ?, ?, ?, ?, ?)`,
           [testUserId, testFoodId, '2024-01-14', 'dinner', 1.5, 150],
+          resolve
+        );
+      });
+      await new Promise((resolve) => {
+        db.getDB().run(
+          `INSERT INTO meals (user_id, food_id, date, meal_type, servings, total_calories) 
+           VALUES (?, ?, ?, ?, ?, ?)`,
+          [testUserId, testFoodId, '2024-01-15', 'breakfast', 1, 100],
+          resolve
+        );
+      });
+      await new Promise((resolve) => {
+        db.getDB().run(
+          `INSERT INTO meals (user_id, food_id, date, meal_type, servings, total_calories) 
+           VALUES (?, ?, ?, ?, ?, ?)`,
+          [testUserId, testFoodId, '2024-01-16', 'lunch', 1, 100],
           resolve
         );
       });
